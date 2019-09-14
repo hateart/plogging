@@ -3,6 +3,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { RunnersRoutingModule } from "./runners-routing.module";
 import { RunnersComponent } from "./runners.component";
+import { RunnerDetailComponent } from "./runner-detail/runner-detail.component";
+import { MembersService } from "../shared/services/members.service";
 
 @NgModule({
     imports: [
@@ -10,7 +12,11 @@ import { RunnersComponent } from "./runners.component";
         RunnersRoutingModule
     ],
     declarations: [
-        RunnersComponent
+        RunnersComponent,
+        RunnerDetailComponent
+    ],
+    providers: [
+        MembersService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

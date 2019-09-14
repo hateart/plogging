@@ -3,6 +3,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { ProfileRoutingModule } from "./profile-routing.module";
 import { ProfileComponent } from "./profile.component";
+import { MembersService } from "../shared/services/members.service";
 
 @NgModule({
     imports: [
@@ -10,7 +11,10 @@ import { ProfileComponent } from "./profile.component";
         ProfileRoutingModule
     ],
     declarations: [
-        ProfileComponent
+        ProfileComponent,
+    ],
+    providers: [
+        MembersService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

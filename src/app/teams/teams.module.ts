@@ -3,6 +3,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { TeamsRoutingModule } from "./teams-routing.module";
 import { TeamsComponent } from "./teams.component";
+import { TeamDetailComponent } from "./team-detail/team-detail.component";
+import { TeamsService } from "../shared/services/teams.service";
 
 @NgModule({
     imports: [
@@ -10,7 +12,11 @@ import { TeamsComponent } from "./teams.component";
         TeamsRoutingModule
     ],
     declarations: [
-        TeamsComponent
+        TeamsComponent,
+        TeamDetailComponent
+    ],
+    providers: [
+        TeamsService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

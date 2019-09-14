@@ -1,0 +1,15 @@
+<ActionBar class="action-bar">
+    <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back"></NavigationButton>
+    <Label *ngIf="item" class="action-bar-title" [text]="item.name"></Label>
+</ActionBar>
+
+<GridLayout>
+    <Label *ngIf="item" class="m-10 h3" verticalAlignment="top" [text]="item.description"></Label>
+
+    <ActivityIndicator
+        col="0" row="0"
+        [busy]="loading"
+        class="loader"
+    ></ActivityIndicator>
+
+</GridLayout>

@@ -3,6 +3,16 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf002;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+    <ListView *ngIf="items" [items]="items" class="list-group">
+        <ng-template let-item="item">
+            <Label [nsRouterLink]="['../runner', item.id]" [text]="item.name" class="list-group-item"></Label>
+        </ng-template>
+    </ListView>
+
+    <ActivityIndicator
+        col="0" row="0"
+        [busy]="loading"
+        class="loader"
+    ></ActivityIndicator>
+
 </GridLayout>

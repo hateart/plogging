@@ -1,15 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 
+import { MembersService } from "../shared/services/members.service";
+
 @Component({
     selector: "Profile",
     templateUrl: "./profile.component.html"
 })
 export class ProfileComponent implements OnInit {
-    constructor() {
-        // Use the constructor to inject services.
+
+    constructor(
+        private _dataService: MembersService,
+    ) {
+
     }
 
     ngOnInit(): void {
-        // Use the "ngOnInit" handler to initialize data for the view.
+
+
     }
 }

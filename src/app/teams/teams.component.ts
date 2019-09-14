@@ -1,15 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 
+import { PloggingComponent } from "../shared/components/plogging.component";
+import { TeamsService } from "../shared/services/teams.service";
+
 @Component({
     selector: "Teams",
     templateUrl: "./teams.component.html"
 })
-export class TeamsComponent implements OnInit {
-    constructor() {
-        // Use the component constructor to inject providers.
-    }
+export class TeamsComponent extends PloggingComponent implements OnInit {
 
-    ngOnInit(): void {
-        // Use the "ngOnInit" handler to initialize data for the view.
+    constructor(
+        protected _dataService: TeamsService,
+    ) {
+        super(
+            _dataService
+        );
     }
 }
