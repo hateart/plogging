@@ -1,29 +1,37 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { MembersService } from "../shared/services/members.service";
-import { ActivatedRoute } from "@angular/router";
+import { LoggedComponent } from "../shared/components/logged.component";
+import { StorageService } from "../shared/services/storage.service";
 
 @Component({
     selector: "Profile",
     templateUrl: "./profile.component.html"
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent extends LoggedComponent implements OnInit {
 
     constructor(
-        private _dataService: MembersService,
-        private routerExtensions: RouterExtensions,
-        private activeRoute: ActivatedRoute
+        protected _storageService: StorageService
     ) {
-       // this.routerExtensions.navigate(["//profileTab:signin/default"], { clearHistory: true });
-
-       /* this.routerExtensions.navigate(
-            [{ outlets: { profileTab: ["signin"] } }],
-            { relativeTo: this.activeRoute }
-         );
-        */
+        super(
+            _storageService
+        );
     }
 
     ngOnInit(): void {
 
+    }
+
+    public signOut()
+    {
+        console.log('tap sign out');
+
+        if (this.loggedUser)
+            this._storageService.removeUser().then(success => {
+                this._storageService.user = null;
+                console.log('signout');
+            }, (err) => {
+                console.log(err);
+            });
+        else
+            console.log('no logged user');
     }
 }

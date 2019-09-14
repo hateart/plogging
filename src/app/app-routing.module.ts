@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NSEmptyOutletComponent } from "nativescript-angular";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { StorageService } from "./shared/services/storage.service";
 
 const routes: Routes = [
     {
@@ -37,6 +38,9 @@ const routes: Routes = [
 
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
-    exports: [NativeScriptRouterModule]
+    exports: [NativeScriptRouterModule],
+    providers: [
+        StorageService,
+    ],
 })
 export class AppRoutingModule { }

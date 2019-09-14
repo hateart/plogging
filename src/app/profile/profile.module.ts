@@ -16,7 +16,7 @@ import { SigninComponent } from "./signin/signin.component";
         SigninComponent,
     ],
     providers: [
-        MembersService
+        MembersService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

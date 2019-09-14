@@ -16,7 +16,7 @@ export abstract  class DataService {
     ) {
         this._headers = new HttpHeaders({
             "Content-Type": "application/vnd.plogging.v1+json",
-            "User-Agent" : "{PloggingApp/"
+            "User-Agent" : "PloggingApp"
         });
     }
 

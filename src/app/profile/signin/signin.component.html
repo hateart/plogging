@@ -10,13 +10,16 @@
         <StackLayout row="0" class="input-field">
             <TextField class="input" hint="Email" [isEnabled]="!loading"
                 keyboardType="email" autocorrect="false"
+                [(ngModel)]="email"
                 autocapitalizationType="none"
                 returnKeyType="next" (returnPress)="focusPassword()"></TextField>
             <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 
         <StackLayout row="1" class="input-field">
-            <TextField #password class="input" [isEnabled]="!loading"
+            <TextField class="input"
+                [isEnabled]="!loading"
+                [(ngModel)]="password"
                 hint="Password" secure="true"
                 [returnKeyType]="isLoggingIn ? 'done' : 'next'"
                 returnKeyType="done"></TextField>
