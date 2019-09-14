@@ -20,7 +20,7 @@ export abstract  class DataService {
         });
     }
 
-    protected getCommonItems<T extends Item>(endpoint : string) : Observable<T[]>  {
+    protected getCommonItems<T extends Item>(endpoint : string) : Observable<T[]> {
 
         console.log('fetch items');
 
@@ -35,7 +35,10 @@ export abstract  class DataService {
             }));
     }
 
-    protected getCommonItem(id: number, endpoint : string) : Observable<Item>{
+    protected getCommonItem(id: number, endpoint : string) : Observable<Item> {
+
+        console.log('fetch item:' + id);
+
         return this.http.get<Item>(
             this._API_URL + endpoint + '/' + id,
             { headers: this._headers }

@@ -3,8 +3,23 @@
     <Label *ngIf="item" class="action-bar-title" [text]="item.name"></Label>
 </ActionBar>
 
-<GridLayout>
-    <Label *ngIf="item" class="m-10 h3" verticalAlignment="top" [text]="item.description"></Label>
+<GridLayout rows="*">
+
+        <TabView  col="0" row="0" *ngIf="item" >
+
+                <StackLayout *tabItem="{title: 'Details'}">
+                    <Label class="m-10 h3" verticalAlignment="top" [text]="item.name"></Label>
+                </StackLayout>
+
+                <StackLayout *tabItem="{title: 'Races'}">
+                    <ListView style="height:100%"  [items]="item.races" class="list-group">
+                        <ng-template let-item="item">
+                            <Label  [text]="item.name" class="list-group-item"></Label>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+
+        </TabView>
 
     <ActivityIndicator
         col="0" row="0"

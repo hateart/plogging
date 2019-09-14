@@ -3,11 +3,26 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <ListView *ngIf="items" [items]="items" class="list-group">
-        <ng-template let-item="item">
-            <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
-        </ng-template>
-    </ListView>
+
+    <TabView>
+                <StackLayout *tabItem="{title: 'Planned'}">
+                        <ListView style="height:100%" *ngIf="items" [items]="getPlannedRaces()" class="list-group">
+                                <ng-template let-item="item">
+                                    <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
+                                </ng-template>
+                            </ListView>
+                </StackLayout>
+                <StackLayout *tabItem="{title: 'Finished'}">
+                        <ListView style="height:100%" *ngIf="items" [items]="getFinishedRaces()" class="list-group">
+                                <ng-template let-item="item">
+                                    <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
+                                </ng-template>
+                            </ListView>
+                </StackLayout>
+    </TabView>
+
+
+
 
     <ActivityIndicator
         col="0" row="0"
