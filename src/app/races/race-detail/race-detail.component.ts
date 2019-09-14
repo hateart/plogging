@@ -1,28 +1,27 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
-import { DataService, IDataItem } from "../../shared/data.service";
+
+import { PloggingDetails } from "~/app/shared/components/plogging-details.component";
+import { RacesService } from "~/app/shared/services/races.service";
 
 @Component({
     selector: "RaceDetail",
     templateUrl: "./race-detail.component.html"
 })
-export class RaceDetailComponent implements OnInit {
-
-    item: IDataItem;
+export class RaceDetailComponent extends PloggingDetails implements OnInit {
 
     constructor(
-        private _data: DataService,
-        private _route: ActivatedRoute,
-        private _routerExtensions: RouterExtensions
-    ) { }
-
-    ngOnInit(): void {
-        const id = +this._route.snapshot.params.id;
-        this.item = this._data.getItem(id);
+        protected _dataService: RacesService,
+        protected _route: ActivatedRoute,
+        protected _routerExtensions: RouterExtensions
+    ) {
+        super(
+            _dataService,
+            _route,
+            _routerExtensions,
+        );
     }
 
-    onBackTap(): void {
-        this._routerExtensions.back();
-    }
+
 }

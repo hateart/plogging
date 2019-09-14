@@ -3,9 +3,16 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <ListView [items]="items" class="list-group">
+    <ListView *ngIf="items" [items]="items" class="list-group">
         <ng-template let-item="item">
             <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
         </ng-template>
     </ListView>
+
+    <ActivityIndicator
+        col="0" row="0"
+        [busy]="loading"
+        class="loader"
+    ></ActivityIndicator>
+
 </GridLayout>
