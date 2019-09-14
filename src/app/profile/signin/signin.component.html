@@ -1,0 +1,31 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back"></NavigationButton>
+    <Label class="action-bar-title"  text="Signin"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+
+    <GridLayout rows="auto, auto, auto">
+        <StackLayout row="0" class="input-field">
+            <TextField class="input" hint="Email" [isEnabled]="!loading"
+                keyboardType="email" autocorrect="false"
+                autocapitalizationType="none"
+                returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+
+        <StackLayout row="1" class="input-field">
+            <TextField #password class="input" [isEnabled]="!loading"
+                hint="Password" secure="true"
+                [returnKeyType]="isLoggingIn ? 'done' : 'next'"
+                returnKeyType="done"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+
+        <Label  row="2" c class="login-label sign-up-label" (tap)="login()" text="Sign In"></Label>
+
+        <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+    </GridLayout>
+
+</GridLayout>

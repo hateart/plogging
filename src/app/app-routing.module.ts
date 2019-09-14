@@ -9,7 +9,6 @@ const routes: Routes = [
         redirectTo: "/(racesTab:races/default//teamsTab:teams/default//runnersTab:runners/default//profileTab:profile/default)",
         pathMatch: "full"
     },
-
     {
         path: "races",
         component: NSEmptyOutletComponent,
@@ -33,7 +32,7 @@ const routes: Routes = [
         component: NSEmptyOutletComponent,
         loadChildren: () => import(`~/app/profile/profile.module`).then((m) => m.ProfileModule),
         outlet: "profileTab"
-    }
+    },
 ];
 
 @NgModule({

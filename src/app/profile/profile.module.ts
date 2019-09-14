@@ -4,6 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { ProfileRoutingModule } from "./profile-routing.module";
 import { ProfileComponent } from "./profile.component";
 import { MembersService } from "../shared/services/members.service";
+import { SigninComponent } from "./signin/signin.component";
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import { MembersService } from "../shared/services/members.service";
     ],
     declarations: [
         ProfileComponent,
+        SigninComponent,
     ],
     providers: [
         MembersService
