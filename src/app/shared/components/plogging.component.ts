@@ -2,26 +2,23 @@ import { Subscription} from 'rxjs';
 import { DataService } from '../services/data.service';
 import { Item } from '../business/item.model';
 import { StorageService } from '../services/storage.service';
+import { LoggedComponent } from './logged.component';
 
-export abstract class PloggingComponent{
+export abstract class PloggingComponent extends LoggedComponent {
 
     public items: Array<Item> = [];
     public loading: boolean = true;
-    private _userSubscription: Subscription;
 
     constructor(
         protected _dataService: DataService,
         protected _storageService: StorageService
-    ) { }
+    ) {
+        super(
+            _storageService
+        );
+     }
 
     ngOnInit(): void {
-
-        this._userSubscription = this._storageService.getLoggedUser().subscribe(user => {
-            if (user) {
-                console.log(user);
-                console.log('logged user: ' + user.id);
-            }
-        });
 
         this._dataService.getItems()
         .subscribe((items : Array<Item>) => {

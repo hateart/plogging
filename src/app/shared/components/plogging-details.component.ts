@@ -2,8 +2,10 @@ import { DataService } from '../services/data.service';
 import { Item } from '../business/item.model';
 import { ActivatedRoute, Params } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
+import { LoggedComponent } from './logged.component';
+import { StorageService } from '../services/storage.service';
 
-export abstract class PloggingDetails {
+export abstract class PloggingDetails extends LoggedComponent {
 
     public item: Item;
     public loading: boolean = true;
@@ -11,8 +13,13 @@ export abstract class PloggingDetails {
     constructor(
         protected _dataService: DataService,
         protected _route: ActivatedRoute,
-        protected _routerExtensions: RouterExtensions
-    ) { }
+        protected _routerExtensions: RouterExtensions,
+        protected _storageService: StorageService,
+    ) {
+        super(
+            _storageService
+        );
+    }
 
     ngOnInit(): void {
 
