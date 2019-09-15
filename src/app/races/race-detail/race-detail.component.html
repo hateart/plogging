@@ -9,19 +9,24 @@
 
             <StackLayout *tabItem="{title: 'Details'}">
                 <Label class="m-10 h3" verticalAlignment="top" [text]="item.name"></Label>
+                <Label class="m-10 h3" verticalAlignment="top" [text]="item.description"></Label>
+
+                <Button *ngIf="item.joined == false" (tap)="join(item.id)" text="JOIN"></Button>
+                <Button *ngIf="item.joined == true" (tap)="unjoin(item.id)" text="UNJOIN"></Button>
+
             </StackLayout>
 
             <StackLayout *tabItem="{title: 'Teams'}">
                 <ListView style="height:100%"  [items]="item.teams" class="list-group">
                     <ng-template let-item="item">
-                        <Label  [text]="item.name" class="list-group-item"></Label>
+                        <Label [text]="item.name" class="list-group-item"></Label>
                     </ng-template>
                 </ListView>
             </StackLayout>
             <StackLayout *tabItem="{title: 'Members'}">
                 <ListView style="height:100%"  [items]="item.members" class="list-group">
                     <ng-template let-item="item">
-                        <Label  [text]="item.name" class="list-group-item"></Label>
+                        <Label [text]="item.name" class="list-group-item"></Label>
                     </ng-template>
                 </ListView>
             </StackLayout>

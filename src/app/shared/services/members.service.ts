@@ -38,4 +38,12 @@ export class MembersService extends DataService {
             { headers: this._headers },
         ).pipe(map((res)  => res));
     }
+
+    public join(id: number): Observable<any> {
+        throw new Error('This method is virtual');
+    }
+
+    public unjoin(id: number): Observable<null>{
+        throw new Error('This method is virtual');
+    }
 }

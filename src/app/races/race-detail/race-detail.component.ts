@@ -5,6 +5,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { PloggingDetails } from "~/app/shared/components/plogging-details.component";
 import { RacesService } from "~/app/shared/services/races.service";
 import { StorageService } from "~/app/shared/services/storage.service";
+import { Race } from "~/app/shared/business/race.model";
+
 
 @Component({
     selector: "RaceDetail",
@@ -25,6 +27,4 @@ export class RaceDetailComponent extends PloggingDetails implements OnInit {
             _storageService,
         );
     }
-
-
 }

@@ -25,6 +25,4 @@ export class TeamDetailComponent extends PloggingDetails implements OnInit {
             _storageService,
         );
     }
-
-
 }

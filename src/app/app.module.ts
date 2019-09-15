@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from "./shared/helpers/jwt.interceptor";
-
+import { ErrorInterceptor } from "./shared/helpers/error.interceptor";
 
 @NgModule({
     bootstrap: [
@@ -22,6 +22,7 @@ import { JwtInterceptor } from "./shared/helpers/jwt.interceptor";
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     ],
     schemas: [
         NO_ERRORS_SCHEMA

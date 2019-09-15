@@ -5,15 +5,17 @@ import { RacesRoutingModule } from "./races-routing.module";
 import { RacesComponent } from "./races.component";
 import { RaceDetailComponent } from "./race-detail/race-detail.component";
 import { RacesService } from "../shared/services/races.service";
+import { RaceComponent } from "./race/race.component";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        RacesRoutingModule
+        RacesRoutingModule,
     ],
     declarations: [
         RacesComponent,
-        RaceDetailComponent
+        RaceDetailComponent,
+        RaceComponent,
     ],
     providers: [
         RacesService

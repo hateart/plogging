@@ -8,16 +8,43 @@
                 <StackLayout *tabItem="{title: 'Planned'}">
                         <ListView style="height:100%" *ngIf="items" [items]="getPlannedRaces()" class="list-group">
                                 <ng-template let-item="item">
-                                    <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
+                                    <Race [item]="item"></Race>
                                 </ng-template>
                             </ListView>
                 </StackLayout>
                 <StackLayout *tabItem="{title: 'Finished'}">
                         <ListView style="height:100%" *ngIf="items" [items]="getFinishedRaces()" class="list-group">
                                 <ng-template let-item="item">
-                                    <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="list-group-item"></Label>
+                                    <Race [item]="item"></Race>
                                 </ng-template>
                             </ListView>
+                </StackLayout>
+                <StackLayout *tabItem="{title: 'Total'}">
+                   <GridLayout rows="50, 50, 50, 50" columns="*, 100, 30">
+
+                        <Label row="0" col="0" text="Total"></Label>
+                        <Label row="0" col="1">
+                            <FormattedString>
+                                <Span [text]="totalOutcome.total.kg"></Span>
+                                <Span text=" kg"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label row="0" col="2" [text]="totalOutcome.total.lt"></Label>
+
+                        <Label row="1" col="0" text="Metal"></Label>
+                        <Label row="1" col="1" [text]="totalOutcome.metal.kg"></Label>
+                        <Label row="1" col="2" [text]="totalOutcome.metal.lt"></Label>
+
+                        <Label row="2" col="0" text="Plastic"></Label>
+                        <Label row="2" col="1" [text]="totalOutcome.plastic.kg"></Label>
+                        <Label row="2" col="2" [text]="totalOutcome.plastic.lt"></Label>
+
+                        <Label row="3" col="0" text="Glass"></Label>
+                        <Label row="3" col="1" [text]="totalOutcome.glass.kg"></Label>
+                        <Label row="3" col="2" [text]="totalOutcome.glass.lt"></Label>
+
+
+                   </GridLayout>
                 </StackLayout>
     </TabView>
 

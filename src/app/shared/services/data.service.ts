@@ -57,6 +57,22 @@ export abstract  class DataService {
 
     }
 
+    public joinCommon(endpoint : string, id: number) : Observable<any> {
+        return this.http.post<null>(
+            this._API_URL  + endpoint + id,
+            { headers: this._headers },
+        ).pipe(map((res)  => res));
+    }
+
+    public unjoinCommon(endpoint : string, id: number): Observable<any>{
+        return this.http.post<null>(
+            this._API_URL  + endpoint + id,
+            { headers: this._headers },
+        ).pipe(map((res)  => res));
+    }
+
     public abstract getItems() : Observable<any[]>;
     public abstract getItem(id: number) : Observable<Item>;
+    public abstract join(id: number) : Observable<any>;
+    public abstract unjoin(id: number) : Observable<any>;
 }

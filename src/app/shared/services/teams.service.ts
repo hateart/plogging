@@ -23,4 +23,12 @@ export class TeamsService extends DataService {
     public getItem(id: number) : Observable<Team>{
         return this.getCommonItem(id, 'teams') as Observable<Team>;
     }
+
+    public join(id: number): Observable<any> {
+        return this.joinCommon('teams/join/', id);
+    }
+
+    public unjoin(id: number): Observable<any>{
+        return this.unjoinCommon('teams/unjoin/', id);
+    }
 }
