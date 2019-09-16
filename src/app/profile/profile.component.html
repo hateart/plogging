@@ -3,13 +3,19 @@
     <Label class="action-bar-title" text="Profile"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content" rows="auto, auto, auto, auto">
-    <!--<Label class="page-icon fa" text="&#xf002;"></Label>-->
+<GridLayout class="page page-content">
 
-    <Label row="0" *ngIf="member" class="page-placeholder" [text]="member.name"></Label>
+    <StackLayout *ngIf="member" col="0" row="0">
 
-    <Button row="1" *ngIf="!loggedUser" text="Go To SignIn" [nsRouterLink]="['../signin']"></Button>
-    <Button row="1" *ngIf="loggedUser" text="Sign Out" (tap)="signOut()"></Button>
+            <Label class="m-10 h2" verticalAlignment="top" [text]="member.name"></Label>
+            <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="member.description"></Label>
+
+            <Outcome *ngIf="member.outcome" [item]="member.outcome"></Outcome>
+            <Button  *ngIf="loggedUser" text="Sign Out" (tap)="signOut()"></Button>
+
+    </StackLayout>
+
+    <Button col="0" row="0" *ngIf="!loggedUser" text="Sign In" [nsRouterLink]="['../signin']"></Button>
 
     <ActivityIndicator
         col="0" row="0"

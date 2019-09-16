@@ -5,11 +5,13 @@ import { ProfileRoutingModule } from "./profile-routing.module";
 import { ProfileComponent } from "./profile.component";
 import { MembersService } from "../shared/services/members.service";
 import { SigninComponent } from "./signin/signin.component";
+import { OutcomeModule } from "../shared/components/outcome/outcome.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        ProfileRoutingModule
+        ProfileRoutingModule,
+        OutcomeModule,
     ],
     declarations: [
         ProfileComponent,

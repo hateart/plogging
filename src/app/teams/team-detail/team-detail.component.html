@@ -13,10 +13,11 @@
 
                         <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="item.description"></Label>
 
+                        <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
+
                         <Button *ngIf="item.joined == false" (tap)="join(item.id)" text="JOIN"></Button>
                         <Button *ngIf="item.joined == true" (tap)="unjoin(item.id)" text="UNJOIN"></Button>
 
-                        <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
 
                     </StackLayout>
 

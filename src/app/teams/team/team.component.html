@@ -7,7 +7,11 @@
     ></Image>
     <Label [nsRouterLink]="['../team', item.id]" [text]="item.name" class="race-title"></Label>
     <Label
-        [text]="'members: '"
         class="race-date"
-    ></Label>
+    >
+         <FormattedString>
+            <Span [text]="'members: ' + item.member_count + ' '"></Span>
+            <Span [text]="'races: ' + item.race_count"></Span>
+        </FormattedString>
+</Label>
 </GridLayout>
