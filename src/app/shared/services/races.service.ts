@@ -28,7 +28,7 @@ export class RacesService extends DataService {
 
     public getTotal(): Observable<Outcome>{
         return this.http.get<Outcome>(
-            this._API_URL  + 'statistics',
+            this._API_URL  + 'statistics/',
             { headers: this._headers },
         ).pipe(map((res)  => res));
     }

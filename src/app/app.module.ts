@@ -7,6 +7,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from "./shared/helpers/jwt.interceptor";
 import { ErrorInterceptor } from "./shared/helpers/error.interceptor";
+import { OutcomeModule } from "./shared/components/outcome/outcome.module";
+import { SimpleInfoModule } from "./shared/components/simple-info/simple-info.module";
 
 @NgModule({
     bootstrap: [
@@ -15,7 +17,9 @@ import { ErrorInterceptor } from "./shared/helpers/error.interceptor";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        OutcomeModule,
+        SimpleInfoModule,
     ],
     declarations: [
         AppComponent

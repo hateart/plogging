@@ -1,0 +1,5 @@
+<GridLayout rows="auto" columns="*, 100, 100">
+    <Label col="0" [text]="item.name" textWrap="true" class="list-group-item"></Label>
+    <Label *ngIf="item.outcome" col="1" [text]="item.outcome.total.kg + ' kg'" class="list-group-item"></Label>
+    <Label *ngIf="item.outcome" col="2" [text]="item.outcome.total.lt + ' lt'" class="list-group-item"></Label>
+</GridLayout>

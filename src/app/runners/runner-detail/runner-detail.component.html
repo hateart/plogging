@@ -8,13 +8,16 @@
         <TabView  col="0" row="0" *ngIf="item" >
 
                 <StackLayout *tabItem="{title: 'Details'}">
-                    <Label class="m-10 h3" verticalAlignment="top" [text]="item.name"></Label>
+                    <Label class="m-10 h2" verticalAlignment="top" [text]="item.name"></Label>
+                    <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="item.description"></Label>
+
+                    <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
                 </StackLayout>
 
                 <StackLayout *tabItem="{title: 'Races'}">
                     <ListView style="height:100%"  [items]="item.races" class="list-group">
                         <ng-template let-item="item">
-                            <Label  [text]="item.name" class="list-group-item"></Label>
+                                <SimpleInfo [item]="item"></SimpleInfo>
                         </ng-template>
                     </ListView>
                 </StackLayout>

@@ -5,11 +5,13 @@ import { RunnersRoutingModule } from "./runners-routing.module";
 import { RunnersComponent } from "./runners.component";
 import { RunnerDetailComponent } from "./runner-detail/runner-detail.component";
 import { MembersService } from "../shared/services/members.service";
+import { SimpleInfoModule } from "../shared/components/simple-info/simple-info.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        RunnersRoutingModule
+        RunnersRoutingModule,
+        SimpleInfoModule,
     ],
     declarations: [
         RunnersComponent,

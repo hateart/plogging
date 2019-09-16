@@ -1,0 +1,25 @@
+<GridLayout rows="50, 50, 50, 50" columns="*, 100, 30">
+
+    <Label row="0" col="0" text="Total"></Label>
+    <Label row="0" col="1">
+        <FormattedString>
+            <Span [text]="item.total.kg"></Span>
+            <Span text=" kg"></Span>
+        </FormattedString>
+    </Label>
+    <Label row="0" col="2" [text]="item.total.lt"></Label>
+
+    <Label row="1" col="0" text="Metal"></Label>
+    <Label row="1" col="1" [text]="item.metal.kg"></Label>
+    <Label row="1" col="2" [text]="item.metal.lt"></Label>
+
+    <Label row="2" col="0" text="Plastic"></Label>
+    <Label row="2" col="1" [text]="item.plastic.kg"></Label>
+    <Label row="2" col="2" [text]="item.plastic.lt"></Label>
+
+    <Label row="3" col="0" text="Glass"></Label>
+    <Label row="3" col="1" [text]="item.glass.kg"></Label>
+    <Label row="3" col="2" [text]="item.glass.lt"></Label>
+
+
+</GridLayout>
