@@ -1,0 +1,13 @@
+
+
+<GridLayout style="height:200" rows="" columns="">
+    <Image
+        stretch="fill" src="https://picsum.photos/800/300"
+        style="margin-top:3"
+    ></Image>
+    <Label [nsRouterLink]="['../team', item.id]" [text]="item.name" class="race-title"></Label>
+    <Label
+        [text]="'members: '"
+        class="race-date"
+    ></Label>
+</GridLayout>

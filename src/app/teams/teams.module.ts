@@ -7,6 +7,7 @@ import { TeamDetailComponent } from "./team-detail/team-detail.component";
 import { TeamsService } from "../shared/services/teams.service";
 import { OutcomeModule } from "../shared/components/outcome/outcome.module";
 import { SimpleInfoModule } from "../shared/components/simple-info/simple-info.module";
+import { TeamComponent } from "./team/team.component";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { SimpleInfoModule } from "../shared/components/simple-info/simple-info.m
     ],
     declarations: [
         TeamsComponent,
-        TeamDetailComponent
+        TeamDetailComponent,
+        TeamComponent,
     ],
     providers: [
         TeamsService

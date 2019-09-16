@@ -5,7 +5,7 @@
 <GridLayout class="page page-content">
     <ListView *ngIf="items" [items]="items" class="list-group">
         <ng-template let-item="item">
-            <Label [nsRouterLink]="['../runner', item.id]" [text]="item.name" class="list-group-item"></Label>
+            <Runner [item]="item"></Runner>
         </ng-template>
     </ListView>
 

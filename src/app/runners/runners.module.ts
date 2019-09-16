@@ -6,16 +6,20 @@ import { RunnersComponent } from "./runners.component";
 import { RunnerDetailComponent } from "./runner-detail/runner-detail.component";
 import { MembersService } from "../shared/services/members.service";
 import { SimpleInfoModule } from "../shared/components/simple-info/simple-info.module";
+import { RunnerComponent } from "./runner/runner.component";
+import { OutcomeModule } from "../shared/components/outcome/outcome.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         RunnersRoutingModule,
+        OutcomeModule,
         SimpleInfoModule,
     ],
     declarations: [
         RunnersComponent,
-        RunnerDetailComponent
+        RunnerDetailComponent,
+        RunnerComponent,
     ],
     providers: [
         MembersService
