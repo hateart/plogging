@@ -13,6 +13,10 @@
 
                         <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="item.description"></Label>
 
+
+                        <Label class="m-10 h3" [text]="'Races: ' + item.race_count"></Label>
+                        <Label class="m-10 h3" [text]="'Members:  ' + item.member_count"></Label>
+
                         <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
 
                         <Button *ngIf="item.joined == false" (tap)="join(item.id)" text="JOIN"></Button>

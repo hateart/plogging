@@ -1,25 +1,53 @@
-<GridLayout rows="50, 50, 50, 50" columns="*, 100, 30">
+<StackLayout class="m-10">
+    <Label class="text-uppercase text-left" text="Total"></Label>
 
-    <Label row="0" col="0" text="Total"></Label>
-    <Label row="0" col="1">
+    <Label class="text-right">
         <FormattedString>
             <Span [text]="item.total.kg"></Span>
-            <Span text=" kg"></Span>
+            <Span text=" kg / "></Span>
+            <Span [text]="item.total.lt"></Span>
+            <Span text=" lt"></Span>
         </FormattedString>
     </Label>
-    <Label row="0" col="2" [text]="item.total.lt"></Label>
 
-    <Label row="1" col="0" text="Metal"></Label>
-    <Label row="1" col="1" [text]="item.metal.kg"></Label>
-    <Label row="1" col="2" [text]="item.metal.lt"></Label>
+    <StackLayout class="hr-light m-10"></StackLayout>
 
-    <Label row="2" col="0" text="Plastic"></Label>
-    <Label row="2" col="1" [text]="item.plastic.kg"></Label>
-    <Label row="2" col="2" [text]="item.plastic.lt"></Label>
+    <Label class="text-uppercase text-left" text="Metal"></Label>
 
-    <Label row="3" col="0" text="Glass"></Label>
-    <Label row="3" col="1" [text]="item.glass.kg"></Label>
-    <Label row="3" col="2" [text]="item.glass.lt"></Label>
+    <Label class="text-right">
+            <FormattedString>
+                <Span [text]="item.metal.kg"></Span>
+                <Span text=" kg / "></Span>
+                <Span [text]="item.metal.lt"></Span>
+                <Span text=" lt"></Span>
+            </FormattedString>
+        </Label>
+
+    <StackLayout class="hr-light m-10"></StackLayout>
+
+    <Label class="text-uppercase text-left" text="Plastic"></Label>
+
+    <Label class="text-right">
+            <FormattedString>
+                <Span [text]="item.plastic.kg"></Span>
+                <Span text=" kg / "></Span>
+                <Span [text]="item.plastic.lt"></Span>
+                <Span text=" lt"></Span>
+            </FormattedString>
+        </Label>
+
+    <StackLayout class="hr-light m-15 p-5"></StackLayout>
+
+    <Label class="text-uppercase text-left" text="Glass"></Label>
 
 
-</GridLayout>
+    <Label class="text-right">
+            <FormattedString>
+                <Span [text]="item.glass.kg"></Span>
+                <Span text=" kg / "></Span>
+                <Span [text]="item.glass.lt"></Span>
+                <Span text=" lt"></Span>
+            </FormattedString>
+        </Label>
+
+</StackLayout>

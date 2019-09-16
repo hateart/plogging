@@ -7,7 +7,7 @@
     ></Image>
     <Label [nsRouterLink]="['../race', item.id]" [text]="item.name" class="race-title"></Label>
     <Label
-        [text]="item.started"
+        [text]='item.started  | date:"MM/dd/yy"'
         class="race-date"
     ></Label>
 </GridLayout>

@@ -8,16 +8,25 @@
     <TabView  col="0" row="0" *ngIf="item" >
 
             <StackLayout *tabItem="{title: 'Details'}">
-                <Label class="m-10 h2" verticalAlignment="top" [text]="item.name"></Label>
-                <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="item.description"></Label>
 
-                <Label class="m-10 h3" [text]="'teams: ' + item.team_count"></Label>
-                <Label class="m-10 h3" [text]="'members:  ' + item.team_count"></Label>
+                <ScrollView style="height:100%">
 
-                <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
+                    <StackLayout>
 
-                <Button *ngIf="item.finished == null && item.joined == false" (tap)="join(item.id)" text="JOIN"></Button>
-                <Button *ngIf="item.finished == null && item.joined == true" (tap)="unjoin(item.id)" text="UNJOIN"></Button>
+                        <Label class="m-10 h2" verticalAlignment="top" [text]="item.name"></Label>
+                        <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="item.description"></Label>
+
+                        <Label class="m-10 h3" [text]="'Teams: ' + item.team_count"></Label>
+                        <Label class="m-10 h3" [text]="'Members:  ' + item.team_count"></Label>
+
+                        <Outcome *ngIf="item.outcome" [item]="item.outcome"></Outcome>
+
+                        <Button *ngIf="item.finished == null && item.joined == false" (tap)="join(item.id)" text="JOIN"></Button>
+                        <Button *ngIf="item.finished == null && item.joined == true" (tap)="unjoin(item.id)" text="UNJOIN"></Button>
+
+                    </StackLayout>
+
+                </ScrollView>
 
             </StackLayout>
 

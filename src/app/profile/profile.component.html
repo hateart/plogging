@@ -10,12 +10,16 @@
             <Label class="m-10 h2" verticalAlignment="top" [text]="member.name"></Label>
             <Label class="m-10 h3" textWrap="true" verticalAlignment="top" [text]="member.description"></Label>
 
+
+            <Label class="m-10 h3" [text]="'Races: ' + member.race_count"></Label>
+            <Label *ngIf="member.team" class="m-10 h3" [text]="'Team:  ' + member.team.name"></Label>
+
             <Outcome *ngIf="member.outcome" [item]="member.outcome"></Outcome>
             <Button  *ngIf="loggedUser" text="Sign Out" (tap)="signOut()"></Button>
 
     </StackLayout>
 
-    <Button col="0" row="0" *ngIf="!loggedUser" text="Sign In" [nsRouterLink]="['../signin']"></Button>
+    <Button col="0" row="0" *ngIf="!loggedUser" text="Go to Sign In" [nsRouterLink]="['../signin']"></Button>
 
     <ActivityIndicator
         col="0" row="0"

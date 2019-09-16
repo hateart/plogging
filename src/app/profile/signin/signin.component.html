@@ -6,6 +6,44 @@
 
 <GridLayout class="page page-content">
 
+
+        <StackLayout class="form m-20">
+
+                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+
+                <StackLayout class="input-field">
+
+                        <TextField class="input" hint="Email" [isEnabled]="!loading"
+                        keyboardType="email" autocorrect="false"
+                        [text]="email"
+                        autocapitalizationType="none"
+                        (textChange)="onEmailChange($event)"
+                        returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+
+                </StackLayout>
+
+                <StackLayout class="input-field">
+
+                        <TextField class="input"
+                        (textChange)="onPasswordChange($event)"
+                        #passwordField
+                        [isEnabled]="!loading"
+                        [text]="password"
+                        hint="Password" secure="true"
+                        [returnKeyType]="isLoggingIn ? 'done' : 'next'"
+                        returnKeyType="done"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+
+                </StackLayout>
+
+
+                <Button class="btn btn-primary" (tap)="login()" text="Sign In"></Button>
+
+        </StackLayout>
+
+<!--
+
     <GridLayout rows="auto, auto, auto">
         <StackLayout row="0" class="input-field">
             <TextField class="input" hint="Email" [isEnabled]="!loading"
@@ -30,5 +68,5 @@
 
         <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
     </GridLayout>
-
+-->
 </GridLayout>

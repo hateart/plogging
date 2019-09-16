@@ -47,6 +47,14 @@ export abstract class PloggingDetails extends LoggedComponent {
     }
 
     public join(id: number) {
+
+        if (!this.loggedUser)
+            return alert({
+                title: "Plogging",
+                okButtonText: "OK",
+                message: 'Please, sign in'
+            });
+
         this.loading = true;
         this._dataService.join(id)
         .subscribe(() => {
@@ -70,5 +78,14 @@ export abstract class PloggingDetails extends LoggedComponent {
             this.loading = false;
         }
         );
+    }
+
+
+    protected alert(message: string) {
+        return alert({
+            title: "Plogging",
+            okButtonText: "OK",
+            message: message
+        });
     }
 }

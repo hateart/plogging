@@ -1,17 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild  } from "@angular/core";
 
 import { MembersService } from "../../shared/services/members.service";
 import { RouterExtensions } from "nativescript-angular";
 import { ActivatedRoute } from "@angular/router";
-import { Member } from "~/app/shared/business/member.model";
 import { User } from "~/app/shared/business/user.model";
 import { StorageService } from "~/app/shared/services/storage.service";
+import { EventData } from "tns-core-modules/ui/page/page";
+import { TextField } from "tns-core-modules/ui/text-field";
 
 @Component({
     selector: "Signin",
     templateUrl: "./signin.component.html"
 })
 export class SigninComponent implements OnInit {
+
+    @ViewChild("passwordField", {static: false}) passwordField: ElementRef;
 
     public loading: boolean = false;
     public email: string;
@@ -33,14 +36,24 @@ export class SigninComponent implements OnInit {
         this._routerExtensions.back();
     }
 
+    public onEmailChange(args: EventData) {
+        let textField = args.object as TextField;
+        this.email = textField.text;
+    }
+
+    public onPasswordChange(args: EventData) {
+        let textField = args.object as TextField;
+        this.password = textField.text;
+    }
+
     login() {
 
         this.loading = true;
-        console.log('login tap');
+        console.log('login tap:' + this.email);
 
         this._dataService.login(
-            //this.email, this.password
-            'fake1@email.com', 'test'
+            this.email, this.password
+            //'fake1@email.com', 'test'
         )
         .subscribe((user: User) => {
             console.log('fetch items: ' + this._dataService.total);
@@ -70,7 +83,7 @@ export class SigninComponent implements OnInit {
 
             console.log(error);
             this.loading = false;
-            this.alert("Unfortunately we could not find your account.");
+            this.alert("Please, check your signin data!");
         }
         );
 
@@ -82,5 +95,9 @@ export class SigninComponent implements OnInit {
             okButtonText: "OK",
             message: message
         });
+    }
+
+    focusPassword() {
+        this.passwordField.nativeElement.focus();
     }
 }
